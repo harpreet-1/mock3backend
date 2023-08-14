@@ -69,7 +69,7 @@ userRouter.post("/login", async (req, res) => {
     let hashedResult = bcrypt.compare(user.password, password);
 
     if (hashedResult) {
-      let token = jwt.sign({ email, userId: user._id }, process.env.JWT_SERCET);
+      let token = jwt.sign({ email, userId: user._id }, "iamsecret");
       return res.status(201).json({
         status: "success",
         message: "user login successfull",
